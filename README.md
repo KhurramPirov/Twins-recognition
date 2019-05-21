@@ -84,7 +84,7 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 * University of Notre-Dam for giving the access to the dataset 
 * [ND-Twins](https://cvrl.nd.edu/projects/data/#nd-twins-2009-2010)
-* Inspiration
+* Inspirated by [Pix2Pix repo](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix)
 * etc
 
 
