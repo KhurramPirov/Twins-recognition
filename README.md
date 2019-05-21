@@ -1,6 +1,6 @@
 # Project Title
 
-One Paragraph of project description goes here
+During the Dl_course the team of 1st year master students decided to investigate new tools for twins recognition.
 
 ## Getting Started
 
@@ -72,7 +72,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Khurram Pirov** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
 
 See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
