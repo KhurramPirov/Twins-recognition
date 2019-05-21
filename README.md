@@ -82,7 +82,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* University of Notre-Dam for giving the access to the dataset [ND-Twins] (https://cvrl.nd.edu/projects/data/#nd-twins-2009-2010)
+* University of Notre-Dam for giving the access to the dataset 
+* [ND-Twins] (https://cvrl.nd.edu/projects/data/#nd-twins-2009-2010)
 * Inspiration
 * etc
 
