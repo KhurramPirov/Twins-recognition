@@ -21,17 +21,13 @@
 2. Подготовка изображения. На вход принимает 8битную картинку. Padding лучше делать медианой, но не нулями. Тогда челюсть располагается более менее адекватно. 
 `# Convert image from batch 'float64' to 'uint8'
 img_8bit = (255*img/img.max() ).round().astype('uint8')
-
-# Pad image with median values to "imitate" face surrounding and make jaw positioning correct
 img_8bit_pad = np.pad(img_8bit, ((0,40),(30,30),(0,0)), mode='median')
 `
-3. Использование детектора
-`# Reset detector
-dfd.reset()
 
-# Initialize detector with padded uint8 image. 
-# To plot faces set flag visualize=True, if only doing work - visualize=False
-dfd.face_detect(img_8bit_pad, visualize=True)`
+3. Использование детектора
+`dfd.reset()'
+dfd.face_detect(img_8bit_pad, visualize=True)
+`
 Перед запуском необходимо очистить значения, это функция `self.reset()`. В качестве параметра принимает картинку (см. выше) и флаги: писать подробный отчет (`verbose=True`) и показывать ли картинки лиц, задетектированных точек (`visualize=True`).
 
 4. Чтобы получить координаты - функция get_original_size_landmarks
