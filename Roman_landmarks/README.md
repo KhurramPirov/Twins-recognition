@@ -13,8 +13,9 @@
 ## Работ PCN
 `from pcn_fd import PCN_face_detector`,  img - изображение uint8
 
-`pcn = PCN_face_detector(img)
-restored_image = pcn.restore(visualize=True)`
+`pcn = PCN_face_detector(img)`
+
+`restored_image = pcn.restore(visualize=True)`
 
 restored_image - повернутое на обнаруженный угол изображение. Дополняется нулями. 
 `visualize=True` для плоттинга картинок.
@@ -31,23 +32,27 @@ restored_image - повернутое на обнаруженный угол и�
                              landmark_predictor_path = path+'/shape_predictor_68_face_landmarks.dat' )`
 
 2. Подготовка изображения. На вход принимает 8битную картинку. Padding лучше делать медианой, но не нулями. Тогда челюсть располагается более менее адекватно. 
-`# Convert image from batch 'float64' to 'uint8'
-img_8bit = (255*img/img.max() ).round().astype('uint8')
-img_8bit_pad = np.pad(img_8bit, ((0,40),(30,30),(0,0)), mode='median')
-`
+`# Convert image from batch 'float64' to 'uint8'`
+
+`img_8bit = (255*img/img.max() ).round().astype('uint8')`
+
+`img_8bit_pad = np.pad(img_8bit, ((0,40),(30,30),(0,0)), mode='median')`
 
 3. Использование детектора
-`dfd.reset()'
-dfd.face_detect(img_8bit_pad, visualize=True)
-`
+`dfd.reset()`
+
+`dfd.face_detect(img_8bit_pad, visualize=True)`
+
 Перед запуском необходимо очистить значения, это функция `self.reset()`. В качестве параметра принимает картинку (см. выше) и флаги: писать подробный отчет (`verbose=True`) и показывать ли картинки лиц, задетектированных точек (`visualize=True`).
 
 4. Чтобы получить координаты - функция get_original_size_landmarks
-`# Finally, GET landmark coordinated as numpy array of [x, y] coords of each 68 point
-img_shape = dfd.get_original_size_landmarks()`
+`# Finally, GET landmark coordinated as numpy array of [x, y] coords of each 68 point`
+
+`img_shape = dfd.get_original_size_landmarks()`
 
 5. Чтобы вырезать повернутое лицо (отцентрированное), используется функция 
 `dlib.get_face_chip(dfd._rescaled_image.copy(), dfd.landmark_shape, size=256, padding=0.15)`
+
 Здесь важно НЕ менять размер и padding для ВСЕХ лиц. Я подобрал padding=0.15, мне кажется, оптимально. 
 В качестве параметров принимает внутренние переменные из детектора. Поэтому `dfd.reset()` делать строго перед запуском детектора.
 
